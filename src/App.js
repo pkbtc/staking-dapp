@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import Wallet from './components/Wallet/Wallet';
+import Navigation from './Navigation/Navigation';
+import DisplayPannel from './Display Pannel/DisplayPannel';
+import TokenApproval from './StakeToken/TokenApproval';
+import StakeAmount from './StakeToken/StakeAmount';
+import Withdraw from './Withdraw/Withdraw';
+import ClaimReward from './ClaimReward/ClaimReward';
+import { StakingProvider } from './context/StakingContext';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Wallet>
+        <Navigation/>
+        <StakingProvider>
+        <DisplayPannel/>
+        <StakeAmount/>
+        <Withdraw/>
+        </StakingProvider>
+        <TokenApproval/>
+        <ClaimReward/>
+
+        
+    </Wallet>
+    </>
   );
 }
 
